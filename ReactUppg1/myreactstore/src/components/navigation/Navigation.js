@@ -1,20 +1,24 @@
 import React from 'react'
-import Cart from './cart'
+import { Link } from 'react-router-dom'
+import Cart from '../cart/Cart'
+
 
 export default function navigation() {
-   
 
     return (
-        <nav className="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+        <nav className="navbar navbar-expand-lg navbar-dark default-color">
             <div className="container">
-                <a className="navbar-brand" href="!#">React Webstore</a>
+                <Link className="navbar-brand" to="/">React Webstore</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent-333">
                     <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="!#">Home</a>
+                        <Link className="nav-link" to="/">Home</Link>
+                    </li>
+                    <li className="nav-item active">
+                    <Link className="nav-link" to="/products">Products</Link>
                     </li>
                     </ul>
                     <ul className="navbar-nav ml-auto nav-flex-icons">

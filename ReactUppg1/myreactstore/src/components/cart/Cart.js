@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {checkoutCart } from '../store/actions/cartActions'
-import CartItem from './cartItem'
+import {clearCart,checkoutCart } from '../../store/actions/cartActions'
+
+import CartItem from './CartItem'
 
 export default function Cart() {
     const dispatch = useDispatch()
@@ -13,9 +14,14 @@ export default function Cart() {
         dispatch(checkoutCart(shoppingcart))
     }
 
+    const clear = () => {
+        dispatch(clearCart())
+     }
+  
     return (
+
         <div>
-            <div className="mb-4">
+            <div>
                 {
                 shoppingcart.map(product => {
                     return (<CartItem key={product.id} item={product} />)
@@ -23,9 +29,14 @@ export default function Cart() {
                 }
             </div>
             
-            <p>Total Amount: {totalCartAmount}</p>
-            <p>Total Quantity: {totalCartQuantity}</p>
-            <button onClick={() => save(shoppingcart)}>CHECKOUT</button>
+           
+            
+            <div className="p-2 text-center">
+                <p>Total Amount: {totalCartAmount}</p>
+                <p>Total Quantity: {totalCartQuantity}</p>
+            </div>
+            <button className="ml-2 btn btn-primary btn-sm" onClick={() => clear()}>CLEAR CART</button>
+            <button className="ml-2 btn btn-primary btn-sm" onClick={() => save(shoppingcart)}>CHECKOUT</button>
         </div>
     )
 }

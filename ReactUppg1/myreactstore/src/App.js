@@ -1,22 +1,34 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import  Navigation from './components/navigation'
-import Products from './components/products'
+import Navigation from './components/navigation/Navigation';
+import LandingPage from './views/LandingPage';
+import Products from './views/product/Products';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import ProductDetails from './views/product/ProductDetails';
+import NotFound from './views/NotFound';
+import Footer from './components/navigation/Footer'
+
 
 function App() {
   return (
-    <div>
-    <Navigation />
-   
-   <div className="container mt-4">
-     <Products />
-   </div>
-  
+    <BrowserRouter>
+      <Navigation />
+      
+      
+        <Switch>
+          
+          <Route path="/" exact component={LandingPage} />  
+          <Route path="/products" exact component={Products} />
+          <Route path="/products/:id" exact component={ProductDetails} />
+
+        
+
+          <Route path="*" component={NotFound} />
+        </Switch>
+      <Footer />
+    </BrowserRouter>
     
-   
-    </div>
-  )
-    
+  );
 }
 
 export default App;

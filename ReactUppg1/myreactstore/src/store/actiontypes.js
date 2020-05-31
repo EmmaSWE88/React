@@ -4,7 +4,8 @@ export default () => {
             add: 'ADD_TO_CART',
             remove: 'REMOVE_FROM_CART',
             checkout: 'CHECKOUT_CART',
-            clear: 'CLEAR_CART'
+            clear: 'CLEAR_CART',
+            empty: 'EMPTY_CART'
         },
         productCatalog: {
             set: 'SET_PRODUCTCATALOG'
